@@ -1,89 +1,139 @@
 # Hospital Management System
 
-A production-style full-stack Hospital Management System designed to demonstrate secure application development, role-based access control, database design, and modern deployment practices.
+A working full-stack Hospital Management System MVP built as a portfolio project to demonstrate secure application development, role-based access control, dashboard workflows, and modern deployment practices.
 
-## Project Vision
+## Current MVP Features
 
-This project is planned as a complete healthcare operations platform for hospitals, clinics, and medical practices. It focuses on practical workflows such as patient registration, appointment booking, prescription management, billing, lab report tracking, and admin reporting.
+- Secure login using JWT
+- Password hashing with bcrypt
+- Protected API routes
+- Admin dashboard with KPIs
+- Patient management
+- Appointment management
+- Audit log tracking
+- Responsive React UI
+- Express backend API
+- Docker Compose setup
 
-## Planned Features
+## Demo Login
 
-- Secure authentication with JWT
-- Role-based access control: Admin, Doctor, Receptionist, Lab Staff
-- Patient registration and profile management
-- Appointment scheduling and doctor availability
-- Prescription and treatment history
-- Lab report upload and tracking
-- Billing and invoice management
-- Admin dashboard with KPIs and charts
-- Audit logs for sensitive actions
-- Responsive user interface
-- Docker-ready deployment
-- CI/CD using GitHub Actions
+```text
+Email: admin@hospital.local
+Password: Admin@123
+```
 
 ## Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Frontend | React, TypeScript, Tailwind CSS |
+| Frontend | React, Vite, CSS |
 | Backend | Node.js, Express.js |
-| Database | PostgreSQL |
-| ORM | Prisma |
 | Auth | JWT, bcrypt |
-| DevOps | Docker, GitHub Actions |
-| Testing | Jest, Supertest |
+| Validation | Zod |
+| Security | Helmet, CORS |
+| DevOps | Docker, Docker Compose |
+
+## Quick Start
+
+### Option 1: Run with Docker
+
+```bash
+git clone https://github.com/hrishuvi/Hospital-Managent-Systeam.git
+cd Hospital-Managent-Systeam
+docker compose up --build
+```
+
+Open:
+
+```text
+Frontend: http://localhost:5173
+Backend:  http://localhost:5000/api/health
+```
+
+### Option 2: Run locally
+
+```bash
+git clone https://github.com/hrishuvi/Hospital-Managent-Systeam.git
+cd Hospital-Managent-Systeam
+npm install
+npm run install:all
+npm run dev
+```
+
+Or run separately:
+
+```bash
+cd server
+npm install
+cp .env.example .env
+npm run dev
+```
+
+```bash
+cd client
+npm install
+cp .env.example .env
+npm run dev
+```
+
+## Project Structure
+
+```text
+Hospital-Managent-Systeam/
+├── client/
+│   ├── src/
+│   │   ├── main.jsx
+│   │   └── styles.css
+│   ├── package.json
+│   └── Dockerfile
+├── server/
+│   ├── src/
+│   │   └── index.js
+│   ├── package.json
+│   ├── .env.example
+│   └── Dockerfile
+├── docs/
+│   ├── PROJECT_PLAN.md
+│   └── SECURITY.md
+├── docker-compose.yml
+├── package.json
+└── README.md
+```
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/health` | Health check |
+| POST | `/api/auth/login` | Login and receive JWT |
+| GET | `/api/dashboard` | Dashboard stats |
+| GET | `/api/patients` | List patients |
+| POST | `/api/patients` | Create patient |
+| GET | `/api/appointments` | List appointments |
+| POST | `/api/appointments` | Create appointment |
+| GET | `/api/audit-logs` | List audit logs |
 
 ## Security Focus
 
-This project will include security-focused implementation practices:
-
 - Password hashing with bcrypt
-- Input validation and sanitization
-- Secure JWT handling
-- Role-based authorization middleware
-- Audit logging for sensitive operations
-- Environment-based secrets management
-- Basic OWASP Top 10 protections
+- JWT-based authentication
+- Protected API routes
+- Input validation using Zod
+- Helmet security headers
+- CORS configuration
+- Audit logging for sensitive actions
+- Environment-based secrets
 
-## System Modules
+## Planned Next Improvements
 
-```text
-Hospital Management System
-├── Authentication
-├── User & Role Management
-├── Patient Management
-├── Appointment Management
-├── Doctor Dashboard
-├── Prescription Management
-├── Lab Reports
-├── Billing
-├── Admin Analytics
-└── Audit Logs
-```
-
-## Development Roadmap
-
-### Phase 1: Foundation
-- Set up frontend and backend structure
-- Configure PostgreSQL and Prisma
-- Add authentication and role-based access
-
-### Phase 2: Core Hospital Workflows
-- Patient module
-- Doctor module
-- Appointment module
-- Prescription module
-
-### Phase 3: Admin and Reporting
+- PostgreSQL database integration
+- Prisma ORM schema
+- User and role management
+- Doctor dashboard
 - Billing module
-- Lab reports
-- Dashboard charts
-- Audit logs
-
-### Phase 4: Deployment
-- Docker setup
-- CI/CD pipeline
-- Cloud deployment
+- Lab reports module
+- GitHub Actions CI/CD
+- Unit and API tests
 
 ## Portfolio Value
 
@@ -91,14 +141,10 @@ This project demonstrates:
 
 - Full-stack development
 - Secure backend engineering
-- Database schema design
 - Authentication and authorization
+- API design
 - Healthcare workflow modelling
-- DevOps and deployment readiness
-
-## Status
-
-🚧 Project planning and structure setup in progress.
+- Docker-based deployment readiness
 
 ## Author
 
